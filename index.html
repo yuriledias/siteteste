@@ -16,6 +16,7 @@
             box-sizing: border-box;
             background-color: #f4f4f4;
             color: #333;
+            scroll-behavior: smooth;
         }
         header {
             background-color: #f8843c;
@@ -23,20 +24,25 @@
             text-align: center;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-        header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3em;
-            margin: 0;
-        }
-        .header-nav {
+        header .header-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .header-nav img {
+        header .header-nav img {
             height: 60px;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            margin: 0;
         }
         .header-nav .cta-button {
             background-color: #ffffff;
@@ -53,28 +59,67 @@
         }
         .hero {
             text-align: center;
-            padding: 100px 20px;
+            padding: 150px 20px;
             background-image: linear-gradient(to right, rgba(248, 132, 60, 0.8), rgba(248, 132, 60, 0.8)), url('violao.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .hero h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 3.5em;
+            font-size: 4em;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
         }
         .hero p {
             font-size: 1.5em;
             margin-bottom: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.5s ease;
+        }
+        .hero .cta-button {
+            animation: fadeIn 2s ease;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         .cta-button {
             background-color: #ffffff;
             color: #f8843c;
             padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
@@ -85,30 +130,35 @@
             background-color: #ffdab3;
         }
         .products, .benefits, .testimonials, .faq, .pricing, .about {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             background-color: white;
-            margin: 40px auto;
+            margin: 60px auto;
             max-width: 1200px;
             border-radius: 15px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         .products h3, .benefits h3, .testimonials h3, .faq h3, .pricing h3, .about h3 {
-            font-size: 2.8em;
-            margin-bottom: 30px;
+            font-size: 3em;
+            margin-bottom: 40px;
             font-family: 'Poppins', sans-serif;
+            color: #f8843c;
         }
         .products div {
             margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
         }
         .products h4 {
-            font-size: 2em;
+            font-size: 2.2em;
             color: #f8843c;
             margin-bottom: 15px;
             font-family: 'Poppins', sans-serif;
         }
         .products p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -141,6 +191,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         .testimonials p::before, .testimonials p::after {
             content: '"';
@@ -155,23 +206,28 @@
         .pricing-table {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
             margin-top: 40px;
         }
         .pricing-table .pricing-plan {
             background-color: #f9f9f9;
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
         .pricing-plan h4 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #f8843c;
             margin-bottom: 20px;
         }
         .pricing-plan .price {
-            font-size: 2.5em;
+            font-size: 2.8em;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -187,9 +243,10 @@
         footer {
             background-color: #333;
             color: #fff;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            margin-top: 60px;
         }
         footer p {
             margin: 10px 0;
@@ -202,7 +259,48 @@
         footer a:hover {
             color: #ffdab3;
         }
+        /* Adicionando animação e interatividade para tornar a página mais dinâmica */
+        .cta-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .faq p {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .faq p:hover {
+            color: #f8843c;
+        }
+        .faq p + div {
+            display: none;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+        .faq p.active + div {
+            display: block;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq p');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    question.classList.toggle('active');
+                    const answer = question.nextElementSibling;
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -260,10 +358,14 @@
 
     <section class="faq">
         <h3>Perguntas Frequentes</h3>
-        <p><strong>Preciso ter experiência prévia em música?</strong> Não! Nosso método é desenvolvido para iniciantes completos.</p>
-        <p><strong>Em quanto tempo verei resultados?</strong> Muitos alunos começam a tocar suas primeiras músicas em poucos dias de prática.</p>
-        <p><strong>Como faço para acessar o treinamento de pestana?</strong> Após a compra, você receberá um link para acessar o material no Notion com todas as orientações.</p>
-        <p><strong>Os produtos possuem garantia?</strong> Sim! Oferecemos 7 dias de garantia para que você possa testar nossos materiais e ver como funcionam para você.</p>
+        <p><strong>Preciso ter experiência prévia em música?</strong></p>
+        <div>Não! Nosso método é desenvolvido para iniciantes completos.</div>
+        <p><strong>Em quanto tempo verei resultados?</strong></p>
+        <div>Muitos alunos começam a tocar suas primeiras músicas em poucos dias de prática.</div>
+        <p><strong>Como faço para acessar o treinamento de pestana?</strong></p>
+        <div>Após a compra, você receberá um link para acessar o material no Notion com todas as orientações.</div>
+        <p><strong>Os produtos possuem garantia?</strong></p>
+        <div>Sim! Oferecemos 7 dias de garantia para que você possa testar nossos materiais e ver como funcionam para você.</div>
     </section>
 
     <section class="pricing">
