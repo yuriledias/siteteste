@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violão Fácil - Aprenda Violão de Forma Simples e Prática</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #f8843c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3em;
+            margin: 0;
+        }
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+        .header-nav .cta-button {
+            background-color: #ffffff;
+            color: #f8843c;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .header-nav .cta-button:hover {
+            background-color: #ffdab3;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-image: linear-gradient(to right, rgba(248, 132, 60, 0.8), rgba(248, 132, 60, 0.8)), url('violao.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+        }
+        .cta-button {
+            background-color: #ffffff;
+            color: #f8843c;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #ffdab3;
+        }
+        .products, .benefits, .testimonials, .faq, .pricing, .about {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: white;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .products h3, .benefits h3, .testimonials h3, .faq h3, .pricing h3, .about h3 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .products div {
+            margin-bottom: 40px;
+        }
+        .products h4 {
+            font-size: 2em;
+            color: #f8843c;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .products p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .benefits ul li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .benefits ul li::before {
+            content: '\2714';
+            color: #f8843c;
+            margin-right: 10px;
+        }
+        .testimonials p {
+            font-size: 1.4em;
+            font-style: italic;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .testimonials p::before, .testimonials p::after {
+            content: '"';
+        }
+        .faq p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .pricing-table {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .pricing-table .pricing-plan {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .pricing-plan h4 {
+            font-size: 2em;
+            color: #f8843c;
+            margin-bottom: 20px;
+        }
+        .pricing-plan .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pricing-plan ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .pricing-plan ul li {
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer a {
+            color: #f8843c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ffdab3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-nav">
+            <h1>Violão Fácil</h1>
+            <button class="cta-button">Aprenda Agora</button>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h2>Aprenda Violão de Forma Simples e Divertida!</h2>
+        <p>Quebre o estigma de que aprender violão é difícil. Com nosso método, você aprenderá suas primeiras músicas rapidamente!</p>
+        <button class="cta-button">Comece Agora</button>
+    </section>
+
+    <section class="about">
+        <h3>Por que o Violão Fácil?</h3>
+        <p>Nosso método é pensado para todas as idades e níveis de habilidade, com foco em quebrar as barreiras que impedem você de aprender a tocar violão. Utilizamos uma abordagem motivacional e prática, permitindo que você comece a tocar músicas desde as primeiras aulas.</p>
+        <img src="violao_aprendizado.jpg" alt="Aulas de violão" style="max-width: 100%; border-radius: 15px; margin-top: 20px;">
+    </section>
+
+    <section class="products">
+        <h3>Conheça Nossos Produtos:</h3>
+        <div>
+            <h4>Ebook de Teoria Musical</h4>
+            <p>Explicações fáceis de entender e exercícios práticos para aprender a teoria musical de forma acessível.</p>
+        </div>
+        <div>
+            <h4>Ebook de Violão para Iniciantes</h4>
+            <p>Um guia completo que ajuda qualquer pessoa a começar a tocar suas primeiras músicas rapidamente.</p>
+        </div>
+        <div>
+            <h4>Treinamento de Pestana em 14 dias</h4>
+            <p>Plano estruturado no Notion com metas diárias e exercícios para dominar as pestanas em apenas 14 dias.</p>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <h3>Benefícios Incríveis:</h3>
+        <ul>
+            <li>Aprendizado simples e acessível, ideal para iniciantes</li>
+            <li>Resultados rápidos para manter você motivado</li>
+            <li>Flexibilidade para aprender no seu ritmo, no conforto de casa</li>
+            <li>Material de apoio interativo para garantir sua evolução constante</li>
+        </ul>
+    </section>
+
+    <section class="testimonials">
+        <h3>Depoimentos de Alunos Satisfeitos</h3>
+        <p>Consegui tocar minha primeira música em apenas uma semana! Não sabia que aprender violão podia ser tão fácil. - Ana P.</p>
+        <p>O treinamento de pestana mudou minha vida. Agora posso tocar qualquer acorde sem dificuldades! - Carlos M.</p>
+        <p>Os ebooks são muito didáticos e fáceis de seguir. Recomendo para quem sempre quis aprender violão. - Marina L.</p>
+    </section>
+
+    <section class="faq">
+        <h3>Perguntas Frequentes</h3>
+        <p><strong>Preciso ter experiência prévia em música?</strong> Não! Nosso método é desenvolvido para iniciantes completos.</p>
+        <p><strong>Em quanto tempo verei resultados?</strong> Muitos alunos começam a tocar suas primeiras músicas em poucos dias de prática.</p>
+        <p><strong>Como faço para acessar o treinamento de pestana?</strong> Após a compra, você receberá um link para acessar o material no Notion com todas as orientações.</p>
+        <p><strong>Os produtos possuem garantia?</strong> Sim! Oferecemos 7 dias de garantia para que você possa testar nossos materiais e ver como funcionam para você.</p>
+    </section>
+
+    <section class="pricing">
+        <h3>Planos e Preços</h3>
+        <div class="pricing-table">
+            <div class="pricing-plan">
+                <h4>Básico</h4>
+                <p class="price">R$ 29,90</p>
+                <ul>
+                    <li>Acesso ao Ebook de Teoria Musical</li>
+                    <li>Suporte por email</li>
+                </ul>
+                <button class="cta-button">Assine Agora</button>
+            </div>
+            <div class="pricing-plan">
+                <h4>Completo</h4>
+                <p class="price">R$ 59,90</p>
+                <ul>
+                    <li>Ebook de Teoria Musical</li>
+                    <li>Ebook de Violão para Iniciantes</li>
+                    <li>Treinamento de Pestana em 14 dias</li>
+                    <li>Suporte exclusivo por WhatsApp</li>
+                </ul>
+                <button class="cta-button">Assine Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contato: contato@violao-facil.com</p>
+        <p>Redes sociais: <a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">TikTok</a></p>
+    </footer>
+</body>
+</html>
