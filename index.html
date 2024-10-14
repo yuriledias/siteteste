@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -49,13 +50,14 @@
             color: #f8843c;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .header-nav .cta-button:hover {
             background-color: #ffdab3;
+            transform: scale(1.05);
         }
         .hero {
             text-align: center;
@@ -85,6 +87,9 @@
         }
         .hero .cta-button {
             animation: fadeIn 2s ease;
+            padding: 15px 40px;
+            font-size: 1.5em;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         @keyframes fadeInDown {
             from {
@@ -123,11 +128,12 @@
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .cta-button:hover {
             background-color: #ffdab3;
+            transform: scale(1.05);
         }
         .products, .benefits, .testimonials, .faq, .pricing, .about {
             padding: 80px 20px;
@@ -143,6 +149,27 @@
             margin-bottom: 40px;
             font-family: 'Poppins', sans-serif;
             color: #f8843c;
+            position: relative;
+        }
+        .products h3::after, .benefits h3::after, .testimonials h3::after, .faq h3::after, .pricing h3::after, .about h3::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #f8843c;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .about img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .about img:hover {
+            transform: scale(1.05);
         }
         .products div {
             margin-bottom: 40px;
@@ -150,17 +177,10 @@
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
-        .products h4 {
-            font-size: 2.2em;
-            color: #f8843c;
-            margin-bottom: 15px;
-            font-family: 'Poppins', sans-serif;
-        }
-        .products p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto;
+        .products div:hover {
+            transform: translateY(-10px);
         }
         .benefits ul {
             list-style: none;
@@ -174,11 +194,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            padding-left: 35px;
         }
         .benefits ul li::before {
-            content: '\2714';
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             color: #f8843c;
-            margin-right: 10px;
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
         }
         .testimonials p {
             font-size: 1.4em;
@@ -189,27 +215,22 @@
             margin-right: auto;
             background: #f9f9f9;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             position: relative;
+            transition: transform 0.3s ease;
         }
-        .testimonials p::before, .testimonials p::after {
-            content: '"';
-        }
-        .faq p {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .testimonials p:hover {
+            transform: translateY(-10px);
         }
         .pricing-table {
             display: flex;
             justify-content: center;
             gap: 40px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
-        .pricing-table .pricing-plan {
+        .pricing-plan {
             background-color: #f9f9f9;
             border-radius: 15px;
             padding: 40px;
@@ -221,24 +242,11 @@
             transform: translateY(-10px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
-        .pricing-plan h4 {
-            font-size: 2.5em;
+        .pricing-plan .price {
+            font-size: 3em;
+            font-weight: bold;
             color: #f8843c;
             margin-bottom: 20px;
-        }
-        .pricing-plan .price {
-            font-size: 2.8em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .pricing-plan ul {
-            list-style: none;
-            padding: 0;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .pricing-plan ul li {
-            margin-bottom: 15px;
         }
         footer {
             background-color: #333;
@@ -247,6 +255,7 @@
             text-align: center;
             font-size: 1.2em;
             margin-top: 60px;
+            position: relative;
         }
         footer p {
             margin: 10px 0;
@@ -259,30 +268,17 @@
         footer a:hover {
             color: #ffdab3;
         }
-        /* Adicionando animação e interatividade para tornar a página mais dinâmica */
-        .cta-button {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .social-media {
+            margin-top: 20px;
         }
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        }
-        .faq p {
-            cursor: pointer;
+        .social-media a {
+            margin: 0 10px;
+            color: #f8843c;
+            font-size: 2em;
             transition: color 0.3s ease;
         }
-        .faq p:hover {
-            color: #f8843c;
-        }
-        .faq p + div {
-            display: none;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-        .faq p.active + div {
-            display: block;
+        .social-media a:hover {
+            color: #ffdab3;
         }
     </style>
     <script>
@@ -320,7 +316,7 @@
     <section class="about">
         <h3>Por que o Violão Fácil?</h3>
         <p>Nosso método é pensado para todas as idades e níveis de habilidade, com foco em quebrar as barreiras que impedem você de aprender a tocar violão. Utilizamos uma abordagem motivacional e prática, permitindo que você comece a tocar músicas desde as primeiras aulas.</p>
-        <img src="violao_aprendizado.jpg" alt="Aulas de violão" style="max-width: 100%; border-radius: 15px; margin-top: 20px;">
+        <img src="logo 2.png" alt="Aulas de violão">
     </section>
 
     <section class="products">
@@ -397,6 +393,11 @@
     <footer>
         <p>Contato: contato@violao-facil.com</p>
         <p>Redes sociais: <a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">TikTok</a></p>
+        <div class="social-media">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
     </footer>
 </body>
 </html>
